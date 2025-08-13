@@ -16,22 +16,8 @@ What this project does (plain English)
 
 Repo structure
 
-scalable-di-platform/
-├── app/
-│   └── streamlit_app.py          # Streamlit upload-and-score UI + charts
-├── src/
-│   ├── ingest/nyc_ingest_parquet.py
-│   ├── transform/curations.py
-│   ├── features/build_features_v2.py
-│   ├── ml/train_lr_dt_v2.py      # trains LR & DT, saves scaler + models + metrics
-│   ├── serve/batch_score_lr.py   # batch predictor (writes Delta predictions)
-│   ├── qa/
-│   │   ├── sanity_checks.py
-│   │   └── sanity_checks_pred.py
-│   └── report/quick_report.py    # quick PNG charts for the report
-├── samples/                       # tiny demo CSVs for the UI (safe to commit)
-├── artifacts/                     # models, scaler, metrics, report images (gitignored)
-└── data/                          # raw & curated data (gitignored; ≥1 GB)
+<img width="704" height="263" alt="image" src="https://github.com/user-attachments/assets/446df752-da23-4460-bbd8-4ed570d4012d" />
+
 
 Prereqs
 	•	Python 3.9.x
