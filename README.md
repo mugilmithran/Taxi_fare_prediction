@@ -4,7 +4,7 @@ End-to-end Spark project that ingests NYC Taxi data (≥1 GB), curates Delta Lak
 
 ⸻
 
-# What this project does (plain English)
+# What this project does 
 	•	Ingest monthly NYC Yellow Taxi Parquet files into a Bronze Delta table.
 	•	Clean & type into Silver (drop duplicates, filter invalid rows).
 	•	Aggregate & feature-engineer into Gold (hourly stats + ML features).
