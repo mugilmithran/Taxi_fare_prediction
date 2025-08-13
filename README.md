@@ -1,10 +1,10 @@
-NYC Taxi Fare Prediction — PySpark (Bronze/Silver/Gold + MLlib + Streamlit)
+## NYC Taxi Fare Prediction — PySpark (Bronze/Silver/Gold + MLlib + Streamlit)
 
 End-to-end Spark project that ingests NYC Taxi data (≥1 GB), curates Delta Lake tables (Bronze → Silver → Gold), builds features, trains MLlib models (Linear Regression vs Decision Tree), batch-scores predictions, and ships a Streamlit app for upload-and-predict with clear visuals.
 
 ⸻
 
-What this project does (plain English)
+# What this project does (plain English)
 	•	Ingest monthly NYC Yellow Taxi Parquet files into a Bronze Delta table.
 	•	Clean & type into Silver (drop duplicates, filter invalid rows).
 	•	Aggregate & feature-engineer into Gold (hourly stats + ML features).
@@ -14,18 +14,22 @@ What this project does (plain English)
 
 ⸻
 
-Repo structure
+# Repo structure
 
 <img width="704" height="263" alt="image" src="https://github.com/user-attachments/assets/446df752-da23-4460-bbd8-4ed570d4012d" />
 
 
 Prereqs
+
 	•	Python 3.9.x
+ 
 	•	Java 17
+ 
 	•	Spark 3.5.1 (PySpark installed via pip)
+ 
 	•	Delta Lake 3.2.0 (via delta-spark)
 
-Create the env (example):
+# Create the env (example):
 
 conda create -n spark39 python=3.9 -y
 conda activate spark39
@@ -42,12 +46,12 @@ Tip: 12+ monthly Parquet files usually exceeds 1 GB.
 
 2) Ingest → Bronze (Delta)
 python src/ingest/nyc_ingest_parquet.py
-# writes: data/bronze/nyc_taxi  (Delta)
+ writes: data/bronze/nyc_taxi  (Delta)
 
 3) Clean & Explore → Silver/Gold
 python src/transform/curations.py
-# writes: data/silver/trips_clean (Delta)
-#         data/gold/hourly_stats  (Parquet/Delta depending on script)
+ writes: data/silver/trips_clean (Delta)
+         data/gold/hourly_stats  (Parquet/Delta depending on script)
 
 4) Build features
 python src/features/build_features_v2.py
@@ -55,11 +59,11 @@ python src/features/build_features_v2.py
 
 5) Train models (LR + DT) and save scaler + metrics
 python src/ml/train_lr_dt_v2.py
-# saves:
-#   artifacts/preprocessors/lin_scaler
-#   artifacts/models/linreg_model
-#   artifacts/models/dt_model
-#   artifacts/metrics/eval_lr_v2/overall.json  (train/test RMSE, MAE, R²)
+ saves:
+   artifacts/preprocessors/lin_scaler
+   artifacts/models/linreg_model
+   artifacts/models/dt_model
+   artifacts/metrics/eval_lr_v2/overall.json  (train/test RMSE, MAE, R²)
 
 6) Streamlit UI (upload-and-predict)
 streamlit run app/streamlit_app.py
